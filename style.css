@@ -1,0 +1,495 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #050a13;
+  --panel: #0b1423;
+  --blue: #24558d;
+  --light: #8db9ed;
+  --white: #eaf2ff;
+  --muted: #8292a9;
+  --red: #d34b58;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 75% 20%, #18365c55, transparent 38%),
+    radial-gradient(ellipse at 15% 75%, #10284955, transparent 35%),
+    linear-gradient(135deg, #050a13, #091525 60%, #050a13);
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#7296bd0b 1px, transparent 1px),
+                    linear-gradient(90deg, #7296bd0b 1px, transparent 1px);
+  background-size: 45px 45px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  to { background-position: 45px 45px; }
+}
+
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  opacity: .08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+header {
+  height: 78px;
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff12;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.logo span { color: var(--light); }
+
+.status {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.status i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6dc99a;
+  margin-right: 8px;
+  box-shadow: 0 0 10px #6dc99a;
+}
+
+main {
+  width: 84%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hero {
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  padding: 55px 0;
+}
+
+.hero-content { max-width: 570px; }
+
+.eyebrow {
+  color: var(--light);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(32px, 5vw, 59px);
+  line-height: 1.22;
+  letter-spacing: -2px;
+}
+
+h1 span, h2 span { color: var(--light); }
+
+.description {
+  color: var(--muted);
+  max-width: 430px;
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 20px 0 28px;
+}
+
+.start-btn, .next-btn {
+  border: 1px solid #6b9bd1;
+  color: white;
+  background: linear-gradient(110deg, #17375f, #24558d);
+  padding: 15px 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.start-btn:hover, .next-btn:hover {
+  box-shadow: 0 0 25px #3979bd66;
+  transform: translateY(-3px);
+}
+
+.start-btn span { margin-left: 22px; }
+
+.visual {
+  width: 330px;
+  height: 300px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.circle {
+  position: absolute;
+  border: 1px solid #477db744;
+  border-radius: 50%;
+  animation: rotate 18s linear infinite;
+}
+
+.circle-one { width: 260px; height: 260px; }
+.circle-two {
+  width: 210px;
+  height: 210px;
+  border-style: dashed;
+  animation-direction: reverse;
+}
+
+@keyframes rotate { to { transform: rotate(360deg); } }
+
+.visual-card {
+  width: 180px;
+  height: 205px;
+  background: linear-gradient(145deg, #132944, #08111f);
+  border: 1px solid #5482b366;
+  box-shadow: 0 20px 70px #0009, 0 0 35px #24558d33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: rotate(-5deg);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: rotate(2deg) translateY(-10px); }
+}
+
+.file-icon {
+  font-family: 'Orbitron';
+  font-size: 60px;
+  color: var(--light);
+  text-shadow: 0 0 25px #6198d9;
+}
+
+.visual-card p {
+  font-family: 'Orbitron';
+  font-size: 9px;
+  margin-top: 15px;
+}
+
+.visual-card small {
+  font-size: 9px;
+  color: var(--red);
+  letter-spacing: 2px;
+  margin-top: 7px;
+}
+
+.games { padding: 40px 0 75px; }
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-family: 'Orbitron';
+  font-size: clamp(20px, 3vw, 30px);
+}
+
+.counter {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.game-card {
+  position: relative;
+  background: #0b1524dd;
+  border: 1px solid #ffffff12;
+  cursor: pointer;
+  transition: .3s;
+  overflow: hidden;
+}
+
+.game-card:hover {
+  transform: translateY(-7px);
+  border-color: #5289c477;
+  box-shadow: 0 12px 35px #0007;
+}
+
+.card-art {
+  height: 140px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.card-art::before, .card-art::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #ffffff22;
+  width: 180px;
+  height: 180px;
+}
+
+.card-art::after {
+  width: 120px;
+  height: 120px;
+}
+
+.card-art b {
+  font-family: 'Orbitron';
+  font-size: 65px;
+  color: #dcecff;
+  text-shadow: 0 0 35px #6da8e9;
+  z-index: 1;
+}
+
+.card-art > span {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  font-family: 'Orbitron';
+  font-size: 11px;
+  color: #ffffff88;
+}
+
+.art-one { background: linear-gradient(130deg, #122f50, #07111f); }
+.art-two { background: linear-gradient(130deg, #193e64, #091424); }
+.art-three { background: linear-gradient(130deg, #111d36, #050914); }
+.art-four { background: linear-gradient(130deg, #1a2d4d, #0b1220); }
+.art-five { background: linear-gradient(130deg, #16395a, #080e1a); }
+.art-six { background: linear-gradient(130deg, #1a2943, #080d17); }
+
+.card-info { padding: 17px 18px 21px; }
+
+.card-info small {
+  color: var(--light);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.card-info h3 {
+  font-family: 'Orbitron';
+  font-size: 12px;
+  margin: 9px 0;
+}
+
+.card-info p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.arrow {
+  position: absolute;
+  right: 17px;
+  bottom: 20px;
+  color: var(--light);
+}
+
+footer {
+  border-top: 1px solid #ffffff12;
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: #02060deF;
+  backdrop-filter: blur(12px);
+}
+
+.modal.active { display: flex; }
+
+.game-window {
+  width: 100%;
+  max-width: 600px;
+  max-height: 94vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 32px;
+  background: linear-gradient(145deg, #101f34, #07101d);
+  border: 1px solid #4779ad66;
+  box-shadow: 0 0 80px #000;
+  animation: appear .3s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.game-top {
+  display: flex;
+  justify-content: space-between;
+  color: var(--light);
+  font-family: 'Orbitron';
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  padding-right: 25px;
+}
+
+.progress {
+  height: 3px;
+  background: #ffffff19;
+  margin-bottom: 22px;
+}
+
+.progress div {
+  height: 100%;
+  width: 0;
+  background: var(--light);
+  transition: width .4s;
+}
+
+.scene-visual {
+  height: 125px;
+  background: radial-gradient(circle, #244c77, #0b1729 70%);
+  border: 1px solid #5482b344;
+  display: grid;
+  place-items: center;
+  font-family: 'Orbitron';
+  font-size: 55px;
+  color: #c1dcff;
+  text-shadow: 0 0 25px #70a8e9;
+  margin-bottom: 25px;
+}
+
+.game-window h2 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.scene-text {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 12px 0 20px;
+}
+
+.choices {
+  display: grid;
+  gap: 10px;
+}
+
+.choice {
+  text-align: left;
+  color: var(--white);
+  background: #14253a;
+  border: 1px solid #ffffff20;
+  padding: 14px;
+  font-family: 'Rajdhani';
+  font-size: 16px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.choice:hover:not(:disabled) {
+  background: #1d3e63;
+  border-color: var(--light);
+}
+
+.choice:disabled { cursor: default; opacity: .65; }
+.choice.selected { border-color: var(--light); background: #20446c; }
+
+.feedback {
+  color: #a9c9ec;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-top: 16px;
+}
+
+.next-btn {
+  display: none;
+  margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+  main { width: 90%; }
+  .hero { min-height: auto; padding: 65px 0 35px; }
+  .visual { width: 220px; transform: scale(.8); }
+  .game-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  header { padding: 0 5%; height: 65px; }
+  .logo { font-size: 10px; }
+  .status { font-size: 8px; }
+  .hero { flex-direction: column; align-items: flex-start; }
+  .visual { align-self: center; margin-top: 5px; }
+  .game-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card-art { height: 110px; }
+  .card-info { padding: 12px; }
+  .card-info h3 { font-size: 10px; }
+  .card-info p { font-size: 12px; }
+  .counter { font-size: 8px; }
+  footer { gap: 10px; font-size: 8px; }
+  .game-window { padding: 23px 18px; }
+}

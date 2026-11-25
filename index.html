@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E Se Eu Fosse Você?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background"></div>
+  <div class="noise"></div>
+
+  <header>
+    <div class="logo">E SE EU FOSSE <span>VOCÊ?</span></div>
+    <div class="status"><i></i> SISTEMA ONLINE</div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow">UMA EXPERIÊNCIA INTERATIVA</p>
+        <h1>SUAS ESCOLHAS<br>DEFINEM <span>SEU DESTINO.</span></h1>
+        <p class="description">
+          Nem tudo é o que parece. Entre em situações misteriosas,
+          tome decisões e descubra até onde você iria.
+        </p>
+        <button class="start-btn" onclick="iniciarJogo()">
+          INICIAR EXPERIÊNCIA <span>→</span>
+        </button>
+      </div>
+
+      <div class="visual">
+        <div class="circle circle-one"></div>
+        <div class="circle circle-two"></div>
+        <div class="visual-card">
+          <span class="file-icon">?</span>
+          <p>ARQUIVO DESCONHECIDO</p>
+          <small>ACESSO RESTRITO</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="games" id="jogos">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">ESCOLHA SUA EXPERIÊNCIA</p>
+          <h2>SEU PRÓXIMO <span>DESAFIO</span></h2>
+        </div>
+        <span class="counter">06 EXPERIÊNCIAS</span>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card" onclick="abrirJogo(0)">
+          <div class="card-art art-one"><span>01</span><b>?</b></div>
+          <div class="card-info">
+            <small>INVESTIGAÇÃO</small>
+            <h3>O ARQUIVO PERDIDO</h3>
+            <p>Uma mensagem. Um desaparecimento. Uma verdade.</p>
+          </div>
+          <span class="arrow">↗</span>
+        </article>
+
+        <article class="game-card" onclick="abrirJogo(1)">
+          <div class="card-art art-two"><span>02</span><b>!</b></div>
+          <div class="card-info">
+            <small>VIDA REAL</small>
+            <h3>E AGORA?</h3>
+            <p>O que você faria diante de uma situação inesperada?</p>
+          </div>
+          <span class="arrow">↗</span>
+        </article>
+
+        <article class="game-card" onclick="abrirJogo(2)">
+          <div class="card-art art-three"><span>03</span><b>◉</b></div>
+          <div class="card-info">
+            <small>SUSPENSE</small>
+            <h3>NÃO OLHE PARA TRÁS</h3>
+            <p>Você está sozinho. Ou pelo menos pensa que está.</p>
+          </div>
+          <span class="arrow">↗</span>
+        </article>
+
+        <article class="game-card" onclick="abrirJogo(3)">
+          <div class="card-art art-four"><span>04</span><b>♡</b></div>
+          <div class="card-info">
+            <small>RELACIONAMENTOS</small>
+            <h3>ENTRE NÓS</h3>
+            <p>Confiança, segredos e decisões difíceis.</p>
+          </div>
+          <span class="arrow">↗</span>
+        </article>
+
+        <article class="game-card" onclick="abrirJogo(4)">
+          <div class="card-art art-five"><span>05</span><b>⌁</b></div>
+          <div class="card-info">
+            <small>SOBREVIVÊNCIA</small>
+            <h3>QUANDO TUDO DÁ ERRADO</h3>
+            <p>Imprevistos acontecem. Você está preparado?</p>
+          </div>
+          <span class="arrow">↗</span>
+        </article>
+
+        <article class="game-card" onclick="abrirJogo(5)">
+          <div class="card-art art-six"><span>06</span><b>⚖</b></div>
+          <div class="card-info">
+            <small>DILEMAS</small>
+            <h3>VOCÊ FARIA O CERTO?</h3>
+            <p>Nem sempre existe uma escolha fácil.</p>
+          </div>
+          <span class="arrow">↗</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>E SE EU FOSSE VOCÊ?</span>
+    <span>SUAS ESCOLHAS. SUAS CONSEQUÊNCIAS.</span>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="game-window">
+      <button class="close" onclick="fecharJogo()">×</button>
+      <div class="game-top">
+        <span id="categoria">EXPERIÊNCIA</span>
+        <span id="fase">CENA 01 / 03</span>
+      </div>
+      <div class="progress"><div id="barra"></div></div>
+      <div class="scene-visual" id="sceneVisual">?</div>
+      <p class="eyebrow" id="subtitulo">SITUAÇÃO</p>
+      <h2 id="pergunta">O que você faria?</h2>
+      <p class="scene-text" id="descricao"></p>
+      <div class="choices" id="opcoes"></div>
+      <div class="feedback" id="feedback"></div>
+      <button class="next-btn" id="proximo" onclick="proximaCena()">CONTINUAR →</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
